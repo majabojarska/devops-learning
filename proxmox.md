@@ -28,6 +28,9 @@
    - `sudo apt clean`
 
 1. Power off the VM and convert it to a template.
+1. Remove CD drive from template's hardware page.
+1. Add a CloudInit drive.
+1. Configure CloudInit.
 
 ### Clone the template
 
@@ -42,3 +45,41 @@
    `sudo dpkg-reconfigure openssh-server`
 
 1. Reboot
+
+# Manually delete user
+
+Delete user from `/etc/pve/user.cfg` and `/etc/pve/priv/shadow.cfg`.
+
+## Firewall
+
+- Do not enable firewall before configuring it (Default input policy is to `DROP` everyting).
+- Lower-level rules override higher-level rules. For example, datacenter rules are overridden by node rules, if firewall is enabled on the node.
+
+## Proxmox CLI
+
+### Virtual Machines
+
+`qm` - Qemu/KVM Virtual Machine Manager
+
+`qm start <id>` - Start VM.
+
+`qm shutdown <id>` - Gracefully shutdown VM.
+
+`qm reset <id>` - Reset VM (kill and start immediately).
+
+`qm stop <id>` - Kill VM immediately.
+
+`qm set <id> --onboot 0` - Disable start on boot for VM.
+
+`qm config <id>` - Get VM config.
+
+### Containers
+
+`pct` - Tool to manage Linux Containers (LXC) on Proxmox VE
+
+`pct list` - List containers.
+
+`pct config <id>` - Get container config.
+
+`pct enter <id>` - Open shell session on container.
+
