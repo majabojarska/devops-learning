@@ -46,7 +46,7 @@
 
 1. Reboot
 
-# Manually delete user
+# Manually delete a user
 
 Delete user from `/etc/pve/user.cfg` and `/etc/pve/priv/shadow.cfg`.
 
