@@ -26,7 +26,7 @@
 
 ### Create the template
 
-1. Create the VM from which the template will be created from.
+1. Create the VM from which the template will be created.
 1. Install the QEMU guest agent:
 
    `sudo apt install qemu-guest-agent`
